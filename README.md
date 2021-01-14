@@ -11,7 +11,7 @@ This guide is written solely for myself, and might or might not even be publishe
     - [GNU GRUB](#gnu-grub)
     - [Terminal](#terminal)
     - [PulseAudio](#pulseaudio)
-    - [Scrolling](#scrolling)
+    - [IMWheel](#imwheel)
 - [Software](#software)
     - [Google Chrome](#google-chrome)
     - [Visual Studio Code](#visual-studio-code)
@@ -113,6 +113,24 @@ Also on some of my desktops, before and after sound plays, there's a popping/cli
 ```
 sudo bash -c "echo $'# Prevent High Definition Audio Drivers going into standby\noptions snd-hda-intel power_save=0' >> /etc/modprobe.d/alsa-info.conf"
 ```
+
+
+
+## IMWheel
+For whatever reason scrolling in Linux, or at least in Ubuntu is slow. Sadly there's not scroll speed adjustment, built in anyway. However there is quite a hack with **IMWheel**. You can install with the command below.
+```
+sudo apt install imwheel
+```
+
+Thereafter run [imwheel_configure.sh](imwheel_configure.sh) and choose a setting. You can adjust and play around until you find a speed that suits you. Personally I use **2**.
+
+Finally, you have to start imwheel everytime you boot. Open **Startup Application Preferences** and add an entry simply running the `imwheel` command.
+
+> **Nota bene!**
+> 
+> Sometimes there's a bug where scrolling stops working entirely.
+> 
+> Run `imwheel --kill` to resolve it.
 
 
 
