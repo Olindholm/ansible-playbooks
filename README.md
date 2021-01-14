@@ -72,6 +72,18 @@ https://extensions.gnome.org/extension/1317/
 
 # Miscellaneous Tweaks
 
+## GNU GRUB
+Install using the command below.
+```
+sudo apt install grub-customizer
+```
+
+Open it, and customize! I like to have 3 entries under **List Configuration**. They are **Ubuntu**, **Windows Boot Manager** (Usually rename this to *Windows 10*), and **Bios Setup**.
+
+I also like to customize the settings under **General Settings**. **Default Entry** I set to **Previously Booted Entry** and I set **Boot Default Entry After** to **4** seconds.
+
+Save, and you're all done here!
+
 ## Terminal
 There is three things I like to configure with the terminal. First and formost I don't like writing my password everytime I sudo. Therefore run the command below.
 ```
