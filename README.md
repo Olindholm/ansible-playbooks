@@ -97,9 +97,9 @@ The sound settings can be configured in ubuntu under **Sound** in the **Settings
 sudo apt install pavucontrol
 ```
 
-Also on some of my desktops, before and after sound plays, there's a popping/clicking sound in ths speakers. This is most likely due to the sound drivers going in and out of standby mode. To avoid this, run the command below and see [this StackExchange for more info]().
+Also on some of my desktops, before and after sound plays, there's a popping/clicking sound in ths speakers. This is most likely due to the sound drivers going in and out of standby mode. To avoid this, run the command below, solution from [launchpad bug #1825754](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1825754/comments/15).
 ```
-...
+sudo bash -c "echo $'# Prevent High Definition Audio Drivers going into standby\noptions snd-hda-intel power_save=0' >> /etc/modprobe.d/alsa-info.conf"
 ```
 
 
