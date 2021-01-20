@@ -12,18 +12,21 @@ This guide is written solely for myself, and might or might not even be publishe
     - [Terminal](#terminal)
     - [PulseAudio](#pulseaudio)
     - [IMWheel](#imwheel)
-- [Software](#software)
+- [Software & Games](#software)
     - [Google Chrome](#google-chrome)
     - [Visual Studio Code](#visual-studio-code)
     - [MATLAB](#matlab)
     - [Discord](#discord)
-    - [Teamspeak](#teamspeak)
-- [Games](#games)
+    - [TeamSpeak](#teamspeak)
+    - [Deluge](#deluge)
+    - [Piper](#piper)
+    - [ckb-next](#ckb-next)
     - [Heroes of Newerth](#heroes-of-newerth)
     - [Steam](#steam)
         - [Counter-Strike: Global Offensive](#counter-strike-global-offensive)
         - [Dota 2](#dota-2)
         - [Rocket League](#rocket-league)
+    - [Minecraft](#minecraft)
 
 
 
@@ -157,27 +160,59 @@ In the settings, for **On Startup** I like to use **Continue where you left off*
 For extensions, I recommend using [Adblock Plus](https://chrome.google.com/webstore/detail/cfhdojbkjhnklbpkdaibdccddilifddb). Once installed, configure it by opening it's options. Under **General** disable **Allow Acceptable Ads** and under **Advanced** hit the **Update All Filter Lists** for the best experience.
 
 
+## Visual Studio Code
+Download from https://code.visualstudio.com/download and install.
+
+## MATLAB
+Download from https://se.mathworks.com/downloads/ and install. During installation it will ask for which toolboxes you'd like. Get the following,
+- Control System Toolbox
+- DSP System Toolbox
+- Embedded coder
+- Image Processing Toolbox
+- Matlab coder
+- Optimizaiton Toolbox
+- Robotics System Toolbox
+- Robust Control Toolbox
+- Siganl Processing Toolbox
+- Simscape (all versions of simscape)
+- Simulink
+- Simulink Coder
+- Symbolic Math
+- System Identification Toolbox
 
 ## Discord
+Download from https://discord.com/download and install.
 
 
 
-# Misc but important
-imwheel
+## TeamSpeak
+## Deluge
+## Piper
+## ckb-next
+## Heroes of Newerth
+## Steam
+Install steam, login.
 
+Settings...
+In-Game > In-game FPS counter -> Top-Left High contrast pls
+**Interface** untick **Notify me about additions or changes to my games, new releases, and upcoming releases**.
 
-
-radeontop
-pavucontrol + sound pop
-
-
-
-natuilius
-
-
+**Steam Play** -> **Enable Steam Play for all other titles**
 
 ### Counter-Strike: Global Offensive
-...
+sudo apt install python3 python3-pip xdotool
+pip install pyxhook
 
+
+
+```
+SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0 %command% -fullscreen -novid -high -threads 4 +cl_forcepreload 1 -tickrate 128 -nojoy
+```
+### Dota 2
+### Rocket League
+
+
+## Minecraft
+multi mc
 
 
