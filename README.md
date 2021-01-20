@@ -183,6 +183,11 @@ Download from https://se.mathworks.com/downloads/ and install. During installati
 ## Discord
 Download from https://discord.com/download and install.
 
+The debian installation file just installed will add automatic update for vscode through **apt**. However for some reason it added it for some weird processor architectures that we don't need, and don't exist. So remove those by running the command below, and remove all architectures which are not `amd64` (or the specific architecture you have).
+```
+sudo nano /etc/apt/sources.list.d/vscode.list
+```
+
 
 
 ## TeamSpeak
