@@ -180,6 +180,22 @@ Download from https://se.mathworks.com/downloads/ and install. During installati
 - Symbolic Math
 - System Identification Toolbox
 
+Finally, create a ubuntu launcher for matlab,
+```
+sudo gedit ~/.local/share/applications/matlab.desktop
+```
+
+```
+[Desktop Entry]
+Name=MATLAB R2020b
+Type=Application
+Exec=/usr/local/MATLAB/R2020b/bin/matlab -desktop
+Terminal=false
+Icon=/usr/local/MATLAB/R2020b/bin/glnxa64/cef_resources/matlab_icon.png
+Comment=MATLAB
+Categories=Development;Math;Science;Education;IDE;
+```
+
 ## Discord
 Download from https://discord.com/download and install.
 
@@ -202,6 +218,10 @@ In-Game > In-game FPS counter -> Top-Left High contrast pls
 ### Counter-Strike: Global Offensive
 sudo apt install python3 python3-pip xdotool
 pip install pyxhook
+
+```
+cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+```
 
 
 
