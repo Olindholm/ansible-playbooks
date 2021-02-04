@@ -180,6 +180,8 @@ Download from https://se.mathworks.com/downloads/ and install. During installati
 - Symbolic Math
 - System Identification Toolbox
 
+During the installtion process you'll be asked to create a symbolic links to matlab
+
 Finally, create a ubuntu launcher for matlab,
 ```
 sudo gedit ~/.local/share/applications/matlab.desktop
