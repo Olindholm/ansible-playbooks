@@ -1,0 +1,32 @@
+---
+- hosts: all
+
+  vars_prompt:
+    name: CONFIRM
+    prompt: "\n\n\nDo you want to configure the terminal (yes/no)?"
+    default: "yes"
+    private: no
+
+  pre_tasks:
+
+    - name: Cancel on no confirmation
+      meta: end_play
+      when: not ( (CONFIRM | lower) == "y" or (CONFIRM | lower) == "yes" )
+
+  tasks:
+
+    - name: Set copy hotkeys in terminal
+      dconf:
+        key: "/org/gnome/terminal/legacy/keybindings/copy"
+        value: "'<Primary>c'"
+
+    - name: Set paste hotkeys in terminal
+      dconf:
+        key: "/org/gnome/terminal/legacy/keybindings/paste"
+        value: "'<Primary>v'"
+
+    - name: Enable passwardless sudo for sudo:ers
+      lineinfile:
+        dest: ~/.bashrc
+        state: present
+        line: "stty intr \\^k # Make CTRL+K send interrupt command in terminal"

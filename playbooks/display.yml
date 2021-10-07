@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  tasks:
+
+    - name: Synchronize global display settings with local settings
+      become: true
+      copy:
+        remote_src: true
+        src: "/home/{{ ansible_env.USER }}/.config/monitors.xml"
+        dest: "~gdm/.config/monitors.xml"

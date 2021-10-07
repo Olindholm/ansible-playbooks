@@ -1,0 +1,83 @@
+---
+- hosts: all
+
+  vars:
+    PANEL_SIZE_MIN: 12
+    PANEL_SIZE_MAX: 128
+
+  vars_prompt:
+    name: PANEL_SIZE
+    prompt: "\n\n\nWhat panel size would you like ({{ PANEL_SIZE_MIN }}-{{ PANEL_SIZE_MAX }})?"
+    default: 32
+    private: no
+
+  pre_tasks:
+
+    - name: Interpret panel size input
+      set_fact:
+          PANEL_SIZE: "{{ PANEL_SIZE | int }}"
+
+    - name: Halt on invalid panel size
+      fail:
+        msg: >-
+          Invalid panel size! Configuration halted!
+      when: not ( (PANEL_SIZE | int) >= PANEL_SIZE_MIN and (PANEL_SIZE | int) <= PANEL_SIZE_MAX )
+
+  tasks:
+
+    - name: Install GNOME Tweak Tool
+      become: true
+      apt:
+        name: gnome-tweak-tool
+        #update_cache: true # Shouldn't be needed due to 'Update and upgrade packages'
+
+    - name: Install Dash to Panel Extension (GNOME)
+      become: true
+      apt:
+        name: gnome-shell-extension-dash-to-panel
+        #update_cache: true # Shouldn't be needed due to 'Update and upgrade packages'
+
+    - name: Configure panel size
+      dconf:
+        key: "/org/gnome/shell/extensions/dash-to-panel/panel-size"
+        value: "32"
+
+    - name: Enable app hotkeys
+      dconf:
+        key: "/org/gnome/shell/extensions/dash-to-panel/hot-keys"
+        value: "true"
+
+    - name: Disable app hotkey number overlay
+      dconf:
+        key: "/org/gnome/shell/extensions/dash-to-panel/hotkeys-overlay-combo"
+        value: "'NEVER'"
+
+    - name: Disable middle click to paste
+      dconf:
+        key: "/org/gnome/desktop/interface/gtk-enable-primary-paste"
+        value: "false"
+
+    - name: Enable display of pattery percentage
+      dconf:
+        key: "/org/gnome/desktop/interface/show-battery-percentage"
+        value: "true"
+
+    - name: Enable weekday on clock
+      dconf:
+        key: "/org/gnome/desktop/interface/clock-show-weekday"
+        value: "true"
+
+    - name: Enable week numbers on calendar
+      dconf:
+        key: "/org/gnome/desktop/calendar/show-weekdate"
+        value: "true"
+
+    - name: Disable dynamic workspaces
+      dconf:
+        key: "/org/gnome/mutter/dynamic-workspaces"
+        value: "false"
+
+    - name: Set static workspaces to 1
+      dconf:
+        key: "/org/gnome/desktop/wm/preferences/num-workspaces"
+        value: "1"

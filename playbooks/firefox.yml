@@ -7,10 +7,13 @@
     default: "yes"
     private: no
 
-  tasks:
+  pre_tasks:
+
     - name: Cancel on no confirmation
       meta: end_play
       when: not ( (CONFIRM | lower) == "y" or (CONFIRM | lower) == "yes" )
+
+  tasks:
 
     - name: Install firefox
       apt:
