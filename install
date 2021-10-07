@@ -15,7 +15,6 @@ sudo apt install ansible
 
 # Install community general libs
 ansible-galaxy collection install community.general
-ansible-galaxy install andrewvaughan.prompt
 
 # Install pip dependencies
 pip install psutil
