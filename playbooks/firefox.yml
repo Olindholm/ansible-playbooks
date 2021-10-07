@@ -1,0 +1,17 @@
+---
+- hosts: all
+
+  vars_prompt:
+    name: CONFIRM
+    prompt: "\n\n\nDo you want to install and configure firefox (yes/no)?"
+    default: "yes"
+    private: no
+
+  tasks:
+    - name: Cancel on no confirmation
+      meta: end_play
+      when: not ( (CONFIRM | lower) == "y" or (CONFIRM | lower) == "yes" )
+
+    - name: Install firefox
+      apt:
+        name: firefox

@@ -1,0 +1,4 @@
+---
+- import_playbook: upgrade-packages.yml
+- import_playbook: firefox.yml
+- import_playbook: chrome.yml

@@ -1,0 +1,22 @@
+---
+- hosts: all
+
+  vars_prompt:
+    name: CONFIRM
+    prompt: "\n\n\nDo you want to install and configure chrome (yes/no)?"
+    default: "yes"
+    private: no
+
+  tasks:
+    - name: Cancel on no confirmation
+      meta: end_play
+      when: not ( (CONFIRM | lower) == "y" or (CONFIRM | lower) == "yes" )
+
+    - name: Download chrome
+      get_url:
+        url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        dest: /tmp
+    
+    - name: Install chrome
+      apt:
+        deb: /tmp/google-chrome-stable_current_amd64.deb

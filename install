@@ -1,0 +1,21 @@
+# /bin/bash
+
+# Make sure we're in workdir
+cd $(dirname "$BASH_SOURCE")
+
+# This will ensure if any of sub-shells fail,
+# this shell will fail too (thus not continue).
+set -e
+
+# Install Ansible
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+
+# Install community general libs
+ansible-galaxy collection install community.general
+ansible-galaxy install andrewvaughan.prompt
+
+# Install pip dependencies
+pip install psutil

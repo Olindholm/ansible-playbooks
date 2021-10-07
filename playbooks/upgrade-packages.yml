@@ -1,0 +1,10 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Update and upgrade packages
+      become: true
+      apt:
+        cache_valid_time: 3600 # One hour
+        update_cache: true
+        upgrade: true
