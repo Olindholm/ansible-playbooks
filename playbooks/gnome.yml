@@ -31,6 +31,10 @@
         name: gnome-tweak-tool
         #update_cache: true # Shouldn't be needed due to 'Update and upgrade packages'
 
+    # TODO
+      # Install Alt-Tab Switcher Popup Delay Removal
+      # Install TopIcons Plus
+
     - name: Install Dash to Panel Extension (GNOME)
       become: true
       apt:

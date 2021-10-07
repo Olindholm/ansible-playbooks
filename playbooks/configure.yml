@@ -1,8 +1,17 @@
 ---
+
+# Basics
 - import_playbook: upgrade-packages.yml
 - import_playbook: display.yml
 - import_playbook: passwordless-sudo.yml
 - import_playbook: terminal.yml
 - import_playbook: gnome.yml
+# TODO GRUB ?
+# TODO PulseAudio ?
+# TODO IMWheel ?
+
+# Applications
 - import_playbook: firefox.yml
 - import_playbook: chrome.yml
+# TODO vscode ?
+# TODO github desktop
