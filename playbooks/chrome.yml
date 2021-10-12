@@ -23,3 +23,16 @@
     - name: Install chrome
       apt:
         deb: /tmp/google-chrome-stable_current_amd64.deb
+
+    - name: Create policy folders
+      become: true
+      file:
+        path: /etc/opt/chrome/policies/recommended/
+        recurse: yes
+        state: directory
+
+    - name: Configure default settings
+      become: true
+      copy:
+        dest: /etc/opt/chrome/policies/recommended/policies.json
+        src: ./roles/chrome/recommended-policies.json # TODO https://chromeenterprise.google/policies/#ExtensionInstallForcelist

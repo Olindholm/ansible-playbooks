@@ -1,0 +1,5 @@
+{
+    "DefaultDownloadDirectory": "/home/${user_name}/Desktop",
+    "BookmarkBarEnabled": true,
+    "RestoreOnStartup": 1
+}
