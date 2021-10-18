@@ -88,12 +88,18 @@
         value: "1"
 
     # Files (nautilus)
-    - name: asdf
+    - name: Set the file view
       dconf:
         key: "/org/gnome/nautilus/preferences/default-folder-viewer"
         value: "'list-view'"
 
-    - name: asdf
+    - name: Set the file details columns
       dconf:
         key: "/org/gnome/nautilus/list-view/default-visible-columns"
         value: "['name', 'size', 'owner', 'permissions', 'date_modified']"
+
+    # Locale
+    - name: Set the locale to english
+      dconf:
+        key: "/system/locale/region"
+        value: "'en_GB.UTF-8'"
