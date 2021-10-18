@@ -13,6 +13,7 @@
 # Applications
 - import_playbook: firefox.yml
 - import_playbook: chrome.yml
+- import_playbook: vscode.yml
 - import_playbook: teams.yml
 # TODO vscode ?
 # TODO github desktop
