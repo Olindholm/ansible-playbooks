@@ -1,11 +1,21 @@
 ---
 - hosts: all
 
+  pre_tasks:
+
+    - name: Define monitor settings file
+      set_fact:
+        monitors_settings_file: "/home/{{ ansible_env.USER }}/.config/monitors.xml"
+
+    - name: Cancel if no settings
+      meta: end_play
+      when: monitors_settings_file is not file
+
   tasks:
 
     - name: Synchronize global display settings with local settings
       become: true
       copy:
         remote_src: true
-        src: "/home/{{ ansible_env.USER }}/.config/monitors.xml"
+        src: "{{ monitors_settings_file }}"
         dest: "~gdm/.config/monitors.xml"
