@@ -21,6 +21,7 @@
         dest: /tmp
 
     - name: Install chrome
+      become: true
       apt:
         deb: /tmp/google-chrome-stable_current_amd64.deb
 
