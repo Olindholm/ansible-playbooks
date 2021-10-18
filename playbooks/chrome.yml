@@ -15,16 +15,24 @@
 
   tasks:
 
-    - name: Download chrome
-      get_url:
-        url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        dest: /tmp
+    # Installation
+    - name: Add google key
+      become: true
+      apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+
+    - name: Add chrome repository
+      become: true
+      apt_repository:
+        repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+        filename: chrome
 
     - name: Install chrome
       become: true
       apt:
-        deb: /tmp/google-chrome-stable_current_amd64.deb
+        name: google-chrome-stable
 
+    # Configuration
     - name: Create policy folders
       become: true
       file:
