@@ -1,0 +1,32 @@
+---
+- hosts: all
+
+  vars_prompt:
+    name: CONFIRM
+    prompt: "\n\n\nDo you want to install teams (yes/no)?"
+    default: "no"
+    private: no
+
+  pre_tasks:
+
+    - name: Cancel on no confirmation
+      meta: end_play
+      when: not ( (CONFIRM | lower) == "y" or (CONFIRM | lower) == "yes" )
+
+  tasks:
+
+    - name: Add microsoft key
+      become: true
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+
+    - name: Add teams repository
+      become: true
+      apt_repository:
+        repo: deb https://packages.microsoft.com/repos/ms-teams stable main
+        filename: teams
+
+    - name: Install teams
+      become: true
+      apt:
+        name: teams
