@@ -13,10 +13,6 @@
 
   pre_tasks:
 
-    - name: Interpret panel size input
-      set_fact:
-          PANEL_SIZE: "{{ PANEL_SIZE | int }}"
-
     - name: Halt on invalid panel size
       fail:
         msg: >-
@@ -34,7 +30,9 @@
     # TODO
       # Install Alt-Tab Switcher Popup Delay Removal
       # Install TopIcons Plus
+      # Desktop Icons NG (DING)
 
+    # Dash to Panel
     - name: Install Dash to Panel Extension (GNOME)
       become: true
       apt:
@@ -56,11 +54,13 @@
         key: "/org/gnome/shell/extensions/dash-to-panel/hotkeys-overlay-combo"
         value: "'NEVER'"
 
+    # Inconveniences
     - name: Disable middle click to paste
       dconf:
         key: "/org/gnome/desktop/interface/gtk-enable-primary-paste"
         value: "false"
 
+    # Icon Bar
     - name: Enable display of pattery percentage
       dconf:
         key: "/org/gnome/desktop/interface/show-battery-percentage"
@@ -76,6 +76,7 @@
         key: "/org/gnome/desktop/calendar/show-weekdate"
         value: "true"
 
+    # Workspaces
     - name: Disable dynamic workspaces
       dconf:
         key: "/org/gnome/mutter/dynamic-workspaces"
@@ -85,3 +86,14 @@
       dconf:
         key: "/org/gnome/desktop/wm/preferences/num-workspaces"
         value: "1"
+
+    # Files (nautilus)
+    - name: asdf
+      dconf:
+        key: "/org/gnome/nautilus/preferences/default-folder-viewer"
+        value: "'list-view'"
+
+    - name: asdf
+      dconf:
+        key: "/org/gnome/nautilus/list-view/default-visible-columns"
+        value: "['name', 'size', 'owner', 'permissions', 'date_modified']"
